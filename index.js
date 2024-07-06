@@ -42,7 +42,7 @@ function getVideoCard(video) {
   card.appendChild(card_body);
 
   card.addEventListener("click",() => {
-    
+    alert("跳转视频")
   })
 
   return card;
