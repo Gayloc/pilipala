@@ -128,6 +128,10 @@ body::before {
     flex-direction: column-reverse;
 }
 
+.info:hover {
+    cursor: pointer;
+}
+
 #info-title {
     font-size: 70px;
     margin: 10px;
