@@ -48,6 +48,7 @@ function loadVideos() {
     method: "GET",
   })
     .then((response) => response.json())
+    .then((data) => console.log(data))
     .then((data) => loadVideoCards(data["item"]))
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -85,7 +86,10 @@ function getVideoCard(video) {
 
   card.addEventListener("click",() => {
     const data = {
-      "bvid": video["bvid"]
+      "title": video["title"],
+      "owner": video["owner"],
+      "pic": "//wsrv.nl/?url=" + video["pic"],
+      "url": video["url"],
     };
     const queryString = new URLSearchParams(data).toString();
     window.open('http://172.25.32.1:5500/View/detail.html?' + queryString, '_blank');

@@ -48,6 +48,7 @@ function loadVideos() {
     method: "GET",
   })
     .then((response) => response.json())
+    .then((data) => console.log(data))
     .then((data) => loadVideoCards(data["item"]))
     .catch((error) => {
       console.error("Error fetching data:", error);
