@@ -33,7 +33,7 @@ class MyHandler(BaseHTTPRequestHandler):
              # 将响应数据转换为JSON格式并发送
             self.wfile.write(json.dumps(sync(rank.get_rank())).encode('utf-8'))
         elif self.path == '/get_vedio_by_bvid':
-            request_data = self.__getattribute__('bvid')
+            self.__getattribute__('')
             self.send_response(200)
             # 设置响应头，指定内容类型为application/json
             self.send_header('Content-type', 'application/json')

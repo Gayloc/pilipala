@@ -28,11 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 function getVideoInfo(bvid) {
-    fetch("http://192.168.2.191:8888/get_vedio_by_bvid" + "?bvid=" + bvid, {
-        method: "GET",
-    })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
+    fetch("http://192.168.2.191:8888/get_vedio_by_bvid")
 }
 
 function loadVideos() {
