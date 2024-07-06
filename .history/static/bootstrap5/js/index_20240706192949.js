@@ -89,9 +89,7 @@ function getVideoCard(video) {
       "owner": video["owner"],
       "pic": "//wsrv.nl/?url=" + video["pic"],
       "url": video["url"],
-    };
-    const queryString = new URLSearchParams(data).toString();
-    window.open('http://172.25.32.1:5500/View/detail.html?' + queryString, '_blank');
+    }
   })
 
   return card;

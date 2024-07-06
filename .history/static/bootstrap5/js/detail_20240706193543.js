@@ -11,6 +11,7 @@ const title = params.get("title");
 const owner = params.get("owner");
 const pic = params.get("pic");
 const url = params.get("url");
+console.log(title, owner, pic, url);
 
 
 document.addEventListener('DOMContentLoaded', function () {

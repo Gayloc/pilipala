@@ -91,7 +91,7 @@ function getVideoCard(video) {
       "url": video["url"],
     };
     const queryString = new URLSearchParams(data).toString();
-    window.open('http://172.25.32.1:5500/View/detail.html?' + queryString, '_blank');
+    window.open('https://View/detail.html?' + queryString, '_blank');
   })
 
   return card;

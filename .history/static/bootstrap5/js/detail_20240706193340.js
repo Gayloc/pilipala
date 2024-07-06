@@ -11,6 +11,7 @@ const title = params.get("title");
 const owner = params.get("owner");
 const pic = params.get("pic");
 const url = params.get("url");
+console.log(title, owner, pic, url);
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -45,6 +46,7 @@ function loadVideoCards(item) {
     let recommend = document.getElementById("recommend");
     for (let i = 0; i < item.length; i++) {
         recommend.appendChild(getVideoCard(item[i]));
+        console.log(item[i]["title"])
     }
 }
 
