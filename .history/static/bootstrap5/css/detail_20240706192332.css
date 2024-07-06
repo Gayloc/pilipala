@@ -134,13 +134,9 @@ body {
     border: none;
     border-radius: 5px;
     padding: 5px;
-}
-
-.btn-group button {
     color: white;
 }
 
 .btn-group button:hover {
-    scale: 1.1;
-    cursor: pointer;
+    background-color: rgb(52, 52, 52);
 }

@@ -3,20 +3,12 @@
     padding: 0;
 }
 
-header {
-    min-width: 100%;
-    height: 4rem;
-    flex-direction: row;
-    justify-content: flex-end;
-    z-index: 18;
-    float: left;
-}
-
 body {
     height: 100vh;
 }
 
 main {
+    margin-top: 5rem;
     margin-bottom: 5rem;
     margin: auto;
     max-width: 1200px;
@@ -44,6 +36,7 @@ main {
     margin-bottom: 1rem;
     background-color: pink;
     padding-left: 1rem;
+    margin-top: 2rem;
 }
 
 .video {
@@ -55,6 +48,7 @@ main {
     background-color: green;
     margin-bottom: 1rem;
     padding-left: 1rem;
+    margin-top: 2rem;
 }
 
 .recommend {
@@ -108,10 +102,10 @@ main {
 .card-title {
     font-size: small;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .card-text {
@@ -121,26 +115,4 @@ main {
     display: -webkit-box;
     text-align: center;
     padding: auto;
-}
-
-body {
-    background-color: rgb(38, 38, 38);
-}
-
-.btn-group {
-    float: right;
-    width: 10%;
-    background-color: rgb(54, 54, 54);
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.btn-group button {
-    color: white;
-}
-
-.btn-group button:hover {
-    scale: 1.1;
-    cursor: pointer;
 }

@@ -139,8 +139,3 @@ body {
 .btn-group button {
     color: white;
 }
-
-.btn-group button:hover {
-    scale: 1.1;
-    cursor: pointer;
-}

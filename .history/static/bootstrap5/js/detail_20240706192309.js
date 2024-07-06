@@ -90,7 +90,7 @@ function changeTheme(theme) {
     const btns = document.querySelectorAll(".btn-group button");
     if (theme === "light") {
         body.style.backgroundColor = "#fff";
-        btngroup.style.backgroundColor = "#f2f2f2";
+        btngroup.style.backgroundColor = "#fff";
         for (let i = 0; i < btns.length; i++) {
             btns[i].style.color = "rgb(97, 97, 97)";
         }

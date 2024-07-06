@@ -130,17 +130,13 @@ body {
 .btn-group {
     float: right;
     width: 10%;
+    color: white;
     background-color: rgb(54, 54, 54);
     border: none;
     border-radius: 5px;
     padding: 5px;
 }
 
-.btn-group button {
-    color: white;
-}
-
 .btn-group button:hover {
-    scale: 1.1;
-    cursor: pointer;
+    background-color: rgb(52, 52, 52);
 }

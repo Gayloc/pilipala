@@ -37,7 +37,6 @@ function loadVideoCards(item) {
     let recommend = document.getElementById("recommend");
     for (let i = 0; i < item.length; i++) {
         recommend.appendChild(getVideoCard(item[i]));
-        console.log(item[i]["title"])
     }
 }
 
@@ -82,24 +81,4 @@ function loadInfo() {
         .catch((error) => {
             console.error("Error fetching data:", error);
         });
-}
-
-function changeTheme(theme) {
-    const body = document.querySelector("body");
-    const btngroup = document.querySelector(".btn-group");
-    const btns = document.querySelectorAll(".btn-group button");
-    if (theme === "light") {
-        body.style.backgroundColor = "#fff";
-        btngroup.style.backgroundColor = "#f2f2f2";
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].style.color = "rgb(97, 97, 97)";
-        }
-    }
-    else if (theme === "dark") {
-        body.style.backgroundColor = "rgb(38, 38, 38)";
-        btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].style.color = "#fff";
-        }
-    }
 }
