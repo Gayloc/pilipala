@@ -1,20 +1,61 @@
+let current = 0;
+let ranking;
+const max_cover_num = 20
+
+loadInfo();
 loadVideos();
 
-function loadVideos(data) {
+document.addEventListener('DOMContentLoaded', function () {
+  // 不再监听鼠标悬停事件，改为监听滚动事件
+  window.addEventListener('scroll', function () {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 0) {
+          document.body.classList.remove('no-mask');
+          document.getElementById('header').classList.remove('no-mask');
+          document.getElementById('to-top').style.display = 'flex';
+      } else {
+          document.body.classList.add('no-mask');
+          document.getElementById('header').classList.add('no-mask');
+          document.getElementById('to-top').style.display = 'none';
+      }
+  });
+})
+
+function changeInfo(num) {
+  if (num >= 0 && num <= max_cover_num-1) {
+    current = num;
+  } else if(num < 0) {
+    current = max_cover_num-1
+  } else if(num > max_cover_num-1) {
+    current = 0
+  }
+
+  document.getElementById("info-title").innerHTML = current+1+"#"+ranking[current]["title"]
+  document.getElementById("info-text").innerHTML = ranking[current]["owner"]["name"]
+  document.querySelector("body").style.backgroundImage = "url(" + "//wsrv.nl/?url=" + ranking[current]["pic"]
+}
+
+function setInfo(data, num) {
+  ranking = data;
+  document.getElementById("info-title").innerHTML = num+1+"#"+data[num]["title"]
+  document.getElementById("info-text").innerHTML = data[num]["owner"]["name"]
+  document.querySelector("body").style.backgroundImage = "url(" + "//wsrv.nl/?url=" + data[num]["pic"]
+}
+
+function loadVideos() {
   fetch("http://127.0.0.1:8888", {
     method: "GET",
   })
     .then((response) => response.json())
-    .then((data) => loadVideoCards(data))
+    .then((data) => loadVideoCards(data["item"]))
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 }
 
-function loadVideoCards(data) {
-  console.log(data);
+function loadVideoCards(item) {
   let content = document.getElementById("content");
-  let item = data["item"];
   for (let i = 0; i < item.length; i++) {
     content.appendChild(getVideoCard(item[i]));
   }
@@ -25,9 +66,9 @@ function getVideoCard(video) {
   card.className = "card";
 
   let cover = document.createElement("img");
-  let title = document.createElement("h4");
+  let title = document.createElement("p");
   let card_body = document.createElement("div");
-  let text = document.createElement("h5");
+  let text = document.createElement("p");
 
   cover.src = "//wsrv.nl/?url=" + video["pic"];
   cover.className = "card-img-top";
@@ -35,6 +76,7 @@ function getVideoCard(video) {
   title.innerHTML = video["title"];
   title.className = "card-title"
   text.innerHTML = video["owner"]["name"]
+  text.className = "card-text"
 
   card.appendChild(cover);
   card_body.appendChild(title);
@@ -46,4 +88,18 @@ function getVideoCard(video) {
   })
 
   return card;
+}
+
+function loadInfo() {
+  fetch("http://127.0.0.1:8888/rank", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      setInfo(data['list'], current)
+      loadVideoCards(data['list'])
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
 }

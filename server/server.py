@@ -1,18 +1,27 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
-from bilibili_api import homepage, sync
+from bilibili_api import homepage, sync, settings, rank
+
+settings.proxy = "http://127.0.0.1:7890"
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # 设置响应状态码
-        self.send_response(200)
-        # 设置响应头，指定内容类型为application/json
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
-        
-        # 将响应数据转换为JSON格式并发送
-        self.wfile.write(json.dumps(sync(homepage.get_videos())).encode('utf-8'))
+        if self.path == '/':
+            self.send_response(200)
+            # 设置响应头，指定内容类型为application/json
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+             # 将响应数据转换为JSON格式并发送
+            self.wfile.write(json.dumps(sync(homepage.get_videos())).encode('utf-8'))
+        elif self.path == '/rank':
+            self.send_response(200)
+            # 设置响应头，指定内容类型为application/json
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+             # 将响应数据转换为JSON格式并发送
+            self.wfile.write(json.dumps(sync(rank.get_rank())).encode('utf-8'))
 
 # 定义服务器地址和端口
 server_address = ('', 8888)

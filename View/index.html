@@ -4,15 +4,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="charset" content="utf-8" />
         <title>劈里啪啦</title>
-        <link rel="stylesheet" href="index.css" />
-        <link rel="stylesheet" href="./bootstrap.css" />
+        <link href="..\static\bootstrap5\css\index.css" rel="stylesheet"/>
     </head>
-    <body>
-        <header id="header">
-            <p>劈里啪啦</p>
+    <body class="no-mask">
+        <header id="header" class="no-mask">
+            <p>劈里啪啦视频网</p>
+            <div>
+                <button class="button" id="previous" onclick="changeInfo(current-1)">上一张</button>
+                <button class="button" id="next" onclick="changeInfo(current+1)">下一张</button>
+            </div>
         </header>
+        <div class="info">
+            <h1 id="info-title"></h1>
+            <p id="info-text"></p>
+        </div>
         <div id="content"></div>
-        <script type="text/javascript" src="./index.js"></script>
-        <script type="text/javascript" src="./bootstrap.min.js"></script>
+        <div id="to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><span>⬆️</span></div>
+        <script type="text/javascript" src="..\static\bootstrap5\js\index.js"></script>
     </body>
 </html>
