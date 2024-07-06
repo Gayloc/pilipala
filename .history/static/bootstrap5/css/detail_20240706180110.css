@@ -34,9 +34,9 @@ main {
 .title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    max-width: 800px;
     background-color: pink;
     padding-left: 1rem;
-    margin-top: 2rem;
 }
 
 .video {
@@ -48,7 +48,6 @@ main {
     background-color: green;
     margin-bottom: 1rem;
     padding-left: 1rem;
-    margin-top: 2rem;
 }
 
 .recommend {

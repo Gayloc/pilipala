@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin: auto;
+    max-width: 1000px;
+    padding: 2rem;
+    background-color: aqua;
+}

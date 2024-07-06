@@ -22,41 +22,20 @@ main {
 .left {
     display: flex;
     flex-direction: column;
-    width: 70%;
 }
 
 .right {
     display: flex;
     flex-direction: column;
-    width: 30%;
 }
 
 .title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    max-width: 800px;
     background-color: pink;
-    padding-left: 1rem;
-    margin-top: 2rem;
 }
 
-.video {
+.vedio {
     background-color: yellow;
-}
-
-.auther {
-    width: 100%;
-    background-color: green;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    margin-top: 2rem;
-}
-
-.recommend {
-    padding-left: 1rem;
-    margin-top: 2rem;
-}
-
-.recommend ul li a {
-    direction: none;
-    text-decoration: none;
 }

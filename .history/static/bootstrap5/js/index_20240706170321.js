@@ -44,7 +44,7 @@ function setInfo(data, num) {
 }
 
 function loadVideos() {
-  fetch("http://192.168.2.191:8888", {
+  fetch("http://127.0.0.1:8888", {
     method: "GET",
   })
     .then((response) => response.json())
@@ -91,7 +91,7 @@ function getVideoCard(video) {
 }
 
 function loadInfo() {
-  fetch("http://192.168.2.191:8888/rank", {
+  fetch("http://127.0.0.1:8888/rank", {
     method: "GET",
   })
     .then((response) => response.json())

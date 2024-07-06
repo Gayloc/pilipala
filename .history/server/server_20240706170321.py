@@ -2,7 +2,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 from bilibili_api import homepage, sync, settings, rank
 
-settings.proxy = "http://192.168.2.191:7890"
+settings.proxy = "http://127.0.0.1:7890"
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
