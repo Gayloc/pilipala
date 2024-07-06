@@ -78,13 +78,13 @@ function getVideoCard(video) {
     card_body.appendChild(text)
     card.appendChild(card_body);
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click",() => {
         const data = {
-            "bvid": video["bvid"]
+          "bvid": video["bvid"]
         };
         const queryString = new URLSearchParams(data).toString();
         window.open('http://127.0.0.1:5500/View/detail.html?' + queryString, '_blank');
-    })
+      })
 
     return card;
 }
