@@ -2,13 +2,13 @@ let current = 0;
 let ranking;
 const max_cover_num = 20
 
+loadInfo();
+loadVideos(); 
+
 // 获取视频数据
 const params = new URLSearchParams(window.location.search);
 const bvid = params.get('bvid');
 
-loadInfo();
-loadVideos();
-getVideoInfo(bvid);
 
 document.addEventListener('DOMContentLoaded', function () {
     // 不再监听鼠标悬停事件，改为监听滚动事件

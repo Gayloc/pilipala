@@ -2,6 +2,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 from bilibili_api import homepage, sync, settings, rank, video, Credential
 
+settings.proxy = "http://192.168.2.191:7890"
+
 SESSDATA = ""
 BILI_JCT = ""
 BUVID3 = ""
