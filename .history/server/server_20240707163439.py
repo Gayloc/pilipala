@@ -31,7 +31,7 @@ async def get_comment_by_aid(aid):
         if count >= c['page']['count']:
             # 当前已获取数量已达到评论总数，跳出循环
             break
-        # print(c['replies'])
+        print(c['replies'])
         comments.extend(c['replies'])
         # 增加已获取数量
         count += c['page']['size']
