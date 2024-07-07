@@ -24,9 +24,9 @@ async def get_comment_by_aid(aid):
     page = 1
     # 当前已获取数量
     count = 0
-    # 获取评论
-    c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
     while True:
+        # 获取评论
+        c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
         # 存储评论
         if count >= c['page']['count']:
             # 当前已获取数量已达到评论总数，跳出循环
