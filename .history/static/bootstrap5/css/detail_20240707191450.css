@@ -113,7 +113,7 @@ main {
     margin: 5px;
     transition: all 0.3s;
     padding: 10px;
-    opacity: 0.85;
+    opacity: 0.8;
     background-color: white;
     border-radius: 15px;
 }
@@ -193,17 +193,11 @@ main {
     margin-left: 20px;
     display: flex;
     flex-direction: row;
-    margin-top: -10px;
-    margin-bottom: -10px;
 }
 
 .titlestat .time {
     margin-left: 10px;
 }
-
-/* 
-* 点赞投币设置
-*/
 
 .stat {
     display: flex;
@@ -222,10 +216,6 @@ main {
     flex-direction: row;
     align-items: center;
 }
-
-/* 
-* 简介设置
-*/
 
 .introductions {
     display: flex;
@@ -262,15 +252,16 @@ main {
     width: 100%;
 }
 
-/* 
-* 评论设置
-*/
-
 .comment {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
     margin-top: 15px;
+}
+
+.titlestat {
+    margin-top: -10px;
+    margin-bottom: -10px;
 }
 
 .views {

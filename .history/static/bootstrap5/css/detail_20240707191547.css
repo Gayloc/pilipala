@@ -113,7 +113,7 @@ main {
     margin: 5px;
     transition: all 0.3s;
     padding: 10px;
-    opacity: 0.85;
+    opacity: 0.8;
     background-color: white;
     border-radius: 15px;
 }
@@ -193,8 +193,6 @@ main {
     margin-left: 20px;
     display: flex;
     flex-direction: row;
-    margin-top: -10px;
-    margin-bottom: -10px;
 }
 
 .titlestat .time {
@@ -271,6 +269,10 @@ main {
     flex-direction: column;
     margin-left: 30px;
     margin-top: 15px;
+}
+
+.titlestat {
+    
 }
 
 .views {

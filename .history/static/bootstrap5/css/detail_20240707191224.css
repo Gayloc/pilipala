@@ -20,13 +20,8 @@ header {
     float: left;
 }
 
-/* 
-* 主体设置
-*/
-
 body {
     height: 100vh;
-    background-color: rgb(38, 38, 38);
 }
 
 main {
@@ -40,10 +35,6 @@ main {
     flex-direction: row;
 }
 
-/* 
-* 左右两部分设置
-*/
-
 .left {
     display: flex;
     flex-direction: column;
@@ -55,10 +46,6 @@ main {
     flex-direction: column;
     width: 30%;
 }
-
-/* 
-* 标题设置
-*/
 
 .title {
     font-size: 24px;
@@ -72,17 +59,9 @@ main {
     -webkit-line-clamp: 1;
 }
 
-/* 
-* 视频设置
-*/
-
 .video {
     background-color: yellow;
 }
-
-/* 
-* 作者设置
-*/
 
 .auther {
     width: 100%;
@@ -90,10 +69,6 @@ main {
     margin-bottom: 1rem;
     padding-left: 1rem;
 }
-
-/* 
-* 右侧推荐列表设置
-*/
 
 .recommend {
     padding-left: 1rem;
@@ -113,7 +88,7 @@ main {
     margin: 5px;
     transition: all 0.3s;
     padding: 10px;
-    opacity: 0.85;
+    opacity: 0.8;
     background-color: white;
     border-radius: 15px;
 }
@@ -161,9 +136,9 @@ main {
     padding: auto;
 }
 
-/* 
-* 主题切换
-*/
+body {
+    background-color: rgb(38, 38, 38);
+}
 
 .btn-group {
     float: right;
@@ -183,27 +158,17 @@ main {
     cursor: pointer;
 }
 
-/* 
-* 视频播放量等信息
-*/
-
 .titlestat {
     font-size: small;
     margin-top: -15px;
     margin-left: 20px;
     display: flex;
     flex-direction: row;
-    margin-top: -10px;
-    margin-bottom: -10px;
 }
 
 .titlestat .time {
     margin-left: 10px;
 }
-
-/* 
-* 点赞投币设置
-*/
 
 .stat {
     display: flex;
@@ -222,10 +187,6 @@ main {
     flex-direction: row;
     align-items: center;
 }
-
-/* 
-* 简介设置
-*/
 
 .introductions {
     display: flex;
@@ -262,15 +223,16 @@ main {
     width: 100%;
 }
 
-/* 
-* 评论设置
-*/
-
 .comment {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
     margin-top: 15px;
+}
+
+.titlestat {
+    margin-top: -10px;
+    margin-bottom: -10px;
 }
 
 .views {
