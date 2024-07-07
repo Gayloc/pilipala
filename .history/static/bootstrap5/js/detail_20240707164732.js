@@ -49,12 +49,7 @@ function loadVideoInfo(data) {
     timecard.appendChild(time);
 
     let titlecard = document.querySelector(".title");
-    titlecard.innerHTML = data["title"];
-
-    let titlestat = document.querySelector(".views");
-    let view = document.createElement("p");
-    view.innerHTML = data["stat"]["view"];
-    titlestat.appendChild(view);
+    title.innerHTML = data["title"];
 
     let introductioncard = document.createElement("div");
     let introduction = document.createElement("p");

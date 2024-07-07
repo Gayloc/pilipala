@@ -51,11 +51,6 @@ function loadVideoInfo(data) {
     let titlecard = document.querySelector(".title");
     titlecard.innerHTML = data["title"];
 
-    let titlestat = document.querySelector(".views");
-    let view = document.createElement("p");
-    view.innerHTML = data["stat"]["view"];
-    titlestat.appendChild(view);
-
     let introductioncard = document.createElement("div");
     let introduction = document.createElement("p");
     introductioncard.className = "introduction"

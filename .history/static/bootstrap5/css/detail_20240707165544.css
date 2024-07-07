@@ -189,11 +189,6 @@ body {
     margin-top: 15px;
 }
 
-.titlestat {
-    margin-top: -10px;
-    margin-bottom: -10px;
-}
-
 .views {
     display: flex;
     flex-direction: row;

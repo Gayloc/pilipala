@@ -42,19 +42,11 @@ function getVideoInfo(bvid) {
 function loadVideoInfo(data) {
     console.log(data);
 
-    let timecard = document.querySelector(".time");
+    let timecard = document.createElement("div");
     let time = document.createElement("p");
     timecard.className = "time"
     time.innerHTML = "发布时间：" + formatDate(data["ctime"] * 1000);
     timecard.appendChild(time);
-
-    let titlecard = document.querySelector(".title");
-    titlecard.innerHTML = data["title"];
-
-    let titlestat = document.querySelector(".views");
-    let view = document.createElement("p");
-    view.innerHTML = data["stat"]["view"];
-    titlestat.appendChild(view);
 
     let introductioncard = document.createElement("div");
     let introduction = document.createElement("p");
@@ -67,6 +59,8 @@ function loadVideoInfo(data) {
     ownercard.className = "owner"
     ownername.innerHTML = data["owner"]["name"];
     owneravatar.src = data["owner"]["face"];
+
+    let titlecard = document.querySelector(".title");
 
     loadVedioComment(data["aid"]);
 }
