@@ -19,7 +19,10 @@ async function checkPage() {
 
 function checkPageVisibility() {
   if (!document.hidden) {
-    document.title = document.title === "劈里啪啦 - PiliPala" ? "劈里啪啦 - PiliPala" : "欢迎回来！(。・∀・)ノ - PiliPala";
+    if (document.title === "劈里啪啦 - PiliPala") {
+      console.log("页面可见")
+    }
+    document.title = document === "劈里啪啦 - PiliPala" ? "劈里啪啦 - PiliPala" : "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {
     document.title = "别走好吗！(」゜ロ゜)」 - PiliPala";
   }

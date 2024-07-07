@@ -8,7 +8,7 @@ loadInfo();
 loadVideos();
 checkPage();
 
-
+as
 
 async function checkPage() {
   setInterval(function () {
@@ -19,7 +19,7 @@ async function checkPage() {
 
 function checkPageVisibility() {
   if (!document.hidden) {
-    document.title = document.title === "劈里啪啦 - PiliPala" ? "劈里啪啦 - PiliPala" : "欢迎回来！(。・∀・)ノ - PiliPala";
+    document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {
     document.title = "别走好吗！(」゜ロ゜)」 - PiliPala";
   }
