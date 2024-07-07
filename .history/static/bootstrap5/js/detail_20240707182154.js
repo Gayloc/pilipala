@@ -79,13 +79,11 @@ function loadVideoInfo(data) {
 
     let interductions = document.querySelector(".introductions");
     let interduction = document.createElement("div");
-    let tname = document.createElement("p");
+    let 
     interduction.className = "introduction";
     interduction.innerHTML = data["desc"];
-    tname.className = "tname";
-    tname.innerHTML = data["tname"];
-    interductions.appendChild(interduction);
-    interductions.appendChild(tname);
+
+
 
     let ownercard = document.createElement("div");
     let ownername = document.createElement("p");

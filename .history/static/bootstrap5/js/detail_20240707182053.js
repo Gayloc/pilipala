@@ -77,15 +77,8 @@ function loadVideoInfo(data) {
     share_num.innerHTML = data["stat"]["share"] >= 10000 ? (data["stat"]["share"] / 10000).toFixed(1) + "万" : data["stat"]["share"];
     share.appendChild(share_num);
 
-    let interductions = document.querySelector(".introductions");
-    let interduction = document.createElement("div");
-    let tname = document.createElement("p");
-    interduction.className = "introduction";
-    interduction.innerHTML = data["desc"];
-    tname.className = "tname";
-    tname.innerHTML = data["tname"];
-    interductions.appendChild(interduction);
-    interductions.appendChild(tname);
+    let interduction = document.querySelector(".interduction");
+    
 
     let ownercard = document.createElement("div");
     let ownername = document.createElement("p");

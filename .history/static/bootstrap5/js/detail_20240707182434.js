@@ -79,7 +79,7 @@ function loadVideoInfo(data) {
 
     let interductions = document.querySelector(".introductions");
     let interduction = document.createElement("div");
-    let tname = document.createElement("p");
+    let tname = document.createElement("div");
     interduction.className = "introduction";
     interduction.innerHTML = data["desc"];
     tname.className = "tname";

@@ -185,6 +185,7 @@ body {
     flex-direction: column;
     margin-left: 10px;
     margin-top: 5px;
+    padding-bottom: 10px;
     border-bottom: 1px solid gray;
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
     padding-left: 15px;
@@ -193,9 +194,7 @@ body {
 .introductions .tname {
     font-size: small;
     margin-top: 5px;
-    padding: 5px;
-    border-radius: 30%;
-    width: 100%;
+    background-color: ;
 }
 
 .comment {

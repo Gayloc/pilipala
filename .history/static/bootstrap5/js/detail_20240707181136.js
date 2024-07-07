@@ -72,20 +72,10 @@ function loadVideoInfo(data) {
     favorite_num.innerHTML = data["stat"]["favorite"] >= 10000 ? (data["stat"]["favorite"] / 10000).toFixed(1) + "万" : data["stat"]["favorite"];
     favorite.appendChild(favorite_num);
 
-    let share = document.querySelector(".share");
-    let share_num = document.createElement("div");
-    share_num.innerHTML = data["stat"]["share"] >= 10000 ? (data["stat"]["share"] / 10000).toFixed(1) + "万" : data["stat"]["share"];
-    share.appendChild(share_num);
-
-    let interductions = document.querySelector(".introductions");
-    let interduction = document.createElement("div");
-    let tname = document.createElement("p");
-    interduction.className = "introduction";
-    interduction.innerHTML = data["desc"];
-    tname.className = "tname";
-    tname.innerHTML = data["tname"];
-    interductions.appendChild(interduction);
-    interductions.appendChild(tname);
+    let introductioncard = document.createElement("div");
+    let introduction = document.createElement("p");
+    introductioncard.className = "introduction"
+    introduction.innerHTML = data["introduction"];
 
     let ownercard = document.createElement("div");
     let ownername = document.createElement("p");

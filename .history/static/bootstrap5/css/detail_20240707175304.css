@@ -40,15 +40,10 @@ main {
 }
 
 .title {
-    font-size: 24px;
+    font-size: 2rem;
     margin-bottom: 1rem;
     background-color: pink;
     padding-left: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
 }
 
 .video {
@@ -170,32 +165,21 @@ body {
     padding-bottom: 10px;
     border-bottom: 1px solid gray;
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
-    align-items: center;
 }
 
 .stat div {
-    padding-left: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.introductions {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    margin-top: 5px;
-    border-bottom: 1px solid gray;
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
     padding-left: 15px;
 }
 
-.introductions .tname {
-    font-size: small;
+.interduction {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
     margin-top: 5px;
-    padding: 5px;
-    border-radius: 30%;
-    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+    padding-left: 15px;
 }
 
 .comment {
@@ -214,3 +198,5 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.
