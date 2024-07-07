@@ -41,7 +41,7 @@ async def get_comment_by_aid(aid):
         print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
     # 打印评论总数
     print(f"\n\n共有 {count} 条评论（不含子评论）")
-    return comments
+    # return comments
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):

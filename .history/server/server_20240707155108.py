@@ -26,7 +26,7 @@ async def get_comment_by_aid(aid):
     count = 0
     while True:
         # 获取评论
-        c = await comment.get_comments(1906148774, comment.CommentResourceType.VIDEO, page)
+        c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
         # 存储评论
         comments.extend(c['replies'])
         # 增加已获取数量
@@ -73,6 +73,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(sync(get_vedio_by_bvid(query_params["bvid"][0]))).encode('utf-8'))
         elif path == '/get_comment_by_aid':
+            print(query_params["aid"][0])
             self.send_response(200)
             # 设置响应头，指定内容类型为application/json
             self.send_header('Content-type', 'application/json')

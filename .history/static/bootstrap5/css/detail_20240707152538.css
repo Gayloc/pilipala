@@ -145,28 +145,10 @@ body {
     cursor: pointer;
 }
 
-.titlestat {
+.stat {
     font-size: small;
-    margin-top: -15px;
+    margin-top: -10px;
     margin-left: 20px;
     display: flex;
     flex-direction: row;
-}
-
-.titlestat .time {
-    margin-left: 10px;
-}
-
-.stat {
-    display: flex;
-    flex-direction: row;
-    margin-left: 10px;
-    margin-top: 5px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid gray;
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
-}
-
-.stat div {
-    padding-left: 15px;
 }

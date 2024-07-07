@@ -66,7 +66,7 @@ function loadVideoInfo(data) {
 }
 
 async function loadVedioComment(aid) {
-    await fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
+    fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
         method: "GET",
     })
         .then((response) => response.json())

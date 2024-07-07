@@ -40,40 +40,9 @@ function getVideoInfo(bvid) {
 }
 
 function loadVideoInfo(data) {
-    console.log(data);
-
-    let timecard = document.createElement("div");
     let time = document.createElement("p");
-    timecard.className = "time"
-    time.innerHTML = "发布时间：" + formatDate(data["ctime"] * 1000);
-    timecard.appendChild(time);
-
-    let introductioncard = document.createElement("div");
-    let introduction = document.createElement("p");
-    introductioncard.className = "introduction"
-    introduction.innerHTML = data["introduction"];
-
-    let ownercard = document.createElement("div");
-    let ownername = document.createElement("p");
-    let owneravatar = document.createElement("img");
-    ownercard.className = "owner"
-    ownername.innerHTML = data["owner"]["name"];
-    owneravatar.src = data["owner"]["face"];
-
-    let titlecard = document.querySelector(".title");
-
-    loadVedioComment(data["aid"]);
-}
-
-async function loadVedioComment(aid) {
-    await fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
-        method: "GET",
-    })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-        });
+    time.className = "time"
+    formatDate(data["ctime"])
 }
 
 // 时间格式化函数

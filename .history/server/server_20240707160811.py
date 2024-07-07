@@ -44,7 +44,7 @@ async def get_comment_by_aid(aid):
     return comments
 
 class MyHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
+    async def do_GET(self):
         parsed_path = urlparse(self.path)
         path = parsed_path.path
         query_params = parse_qs(parsed_path.query)
@@ -56,29 +56,29 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
              # 将响应数据转换为JSON格式并发送
-            self.wfile.write(json.dumps(sync(homepage.get_videos())).encode('utf-8'))
+            await self.wfile.write(json.dumps(sync(homepage.get_videos())).encode('utf-8'))
         elif path == '/rank':
             self.send_response(200)
             # 设置响应头，指定内容类型为application/json
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-             # 将响应数据转换为JSON格式并发送
-            self.wfile.write(json.dumps(sync(rank.get_rank())).encode('utf-8'))
+            # 将响应数据转换为JSON格式并发送
+            await self.wfile.write(json.dumps(sync(rank.get_rank())).encode('utf-8'))
         elif path == '/get_vedio_by_bvid':
             self.send_response(200)
             # 设置响应头，指定内容类型为application/json
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-            self.wfile.write(json.dumps(sync(get_vedio_by_bvid(query_params["bvid"][0]))).encode('utf-8'))
+            await self.wfile.write(json.dumps(sync(get_vedio_by_bvid(query_params["bvid"][0]))).encode('utf-8'))
         elif path == '/get_comment_by_aid':
             self.send_response(200)
             # 设置响应头，指定内容类型为application/json
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-            self.wfile.write(json.dumps(sync(get_comment_by_aid(query_params["aid"][0]))).encode('utf-8'))
+            await self.wfile.write(json.dumps(sync(get_comment_by_aid(query_params["aid"][0]))).encode('utf-8'))
 
 # 定义服务器地址和端口
 server_address = ('', 8888)

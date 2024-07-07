@@ -26,7 +26,7 @@ async def get_comment_by_aid(aid):
     count = 0
     while True:
         # 获取评论
-        c = await comment.get_comments(1906148774, comment.CommentResourceType.VIDEO, page)
+        c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
         # 存储评论
         comments.extend(c['replies'])
         # 增加已获取数量
@@ -46,8 +46,11 @@ async def get_comment_by_aid(aid):
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed_path = urlparse(self.path)
+        print(parsed_path)
         path = parsed_path.path
+        print(path)
         query_params = parse_qs(parsed_path.query)
+        print(query_params)
 
         if path == '/':
             self.send_response(200)

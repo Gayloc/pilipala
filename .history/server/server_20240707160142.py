@@ -26,7 +26,7 @@ async def get_comment_by_aid(aid):
     count = 0
     while True:
         # 获取评论
-        c = await comment.get_comments(1906148774, comment.CommentResourceType.VIDEO, page)
+        c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
         # 存储评论
         comments.extend(c['replies'])
         # 增加已获取数量
@@ -78,7 +78,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
-            self.wfile.write(json.dumps(sync(get_comment_by_aid(query_params["aid"][0]))).encode('utf-8'))
+            self.wfile.write(json.dumps(sync(get_comment_by_aid(1906148774))).encode('utf-8'))
 
 # 定义服务器地址和端口
 server_address = ('', 8888)

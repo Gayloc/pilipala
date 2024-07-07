@@ -61,19 +61,8 @@ function loadVideoInfo(data) {
     owneravatar.src = data["owner"]["face"];
 
     let titlecard = document.querySelector(".title");
+    
 
-    loadVedioComment(data["aid"]);
-}
-
-async function loadVedioComment(aid) {
-    await fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
-        method: "GET",
-    })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-        });
 }
 
 // 时间格式化函数

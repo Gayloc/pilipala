@@ -66,14 +66,13 @@ function loadVideoInfo(data) {
 }
 
 async function loadVedioComment(aid) {
-    await fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
+    fetch(HTTP + "/get_comment_by_aid" + "?aid=" + aid, {
         method: "GET",
     })
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((error) => {
             console.error("Error fetching data:", error);
-        });
 }
 
 // 时间格式化函数

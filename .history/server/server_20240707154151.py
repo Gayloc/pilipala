@@ -17,7 +17,7 @@ async def get_vedio_by_bvid(bvid):
     info = await v.get_info()
     return info
 
-async def get_comment_by_aid(aid):
+async def get_comment_by_bvid(bvid):
     # 存储评论
     comments = []
     # 页码
@@ -26,22 +26,24 @@ async def get_comment_by_aid(aid):
     count = 0
     while True:
         # 获取评论
-        c = await comment.get_comments(1906148774, comment.CommentResourceType.VIDEO, page)
+        c = await comment.get_comments(418788911, comment.CommentResourceType.VIDEO, page)
         # 存储评论
         comments.extend(c['replies'])
         # 增加已获取数量
         count += c['page']['size']
         # 增加页码
         page += 1
+
         if count >= c['page']['count']:
             # 当前已获取数量已达到评论总数，跳出循环
             break
+
     # 打印评论
     for cmt in comments:
         print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
+
     # 打印评论总数
     print(f"\n\n共有 {count} 条评论（不含子评论）")
-    return comments
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -72,13 +74,6 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(json.dumps(sync(get_vedio_by_bvid(query_params["bvid"][0]))).encode('utf-8'))
-        elif path == '/get_comment_by_aid':
-            self.send_response(200)
-            # 设置响应头，指定内容类型为application/json
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps(sync(get_comment_by_aid(query_params["aid"][0]))).encode('utf-8'))
 
 # 定义服务器地址和端口
 server_address = ('', 8888)

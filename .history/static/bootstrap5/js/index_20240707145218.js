@@ -1,7 +1,7 @@
 let current = 0;
 let ranking;
 const max_cover_num = 20
-const HTTP = "http://127.0.0.1:8888"
+static const HTTP = "http://127.0.0.1:7890"
 
 loadInfo();
 loadVideos();
@@ -45,11 +45,10 @@ function setInfo(data, num) {
 }
 
 function loadVideos() {
-  fetch(HTTP, {
+  fetch("http://192.168.2.191:8888", {
     method: "GET",
   })
     .then((response) => response.json())
-    .then((data) => console.log(data))
     .then((data) => loadVideoCards(data["item"]))
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -97,7 +96,7 @@ function getVideoCard(video) {
 }
 
 function loadInfo() {
-  fetch(HTTP + "/rank", {
+  fetch("http://192.168.2.191:8888/rank", {
     method: "GET",
   })
     .then((response) => response.json())

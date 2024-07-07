@@ -28,7 +28,7 @@ async def get_comment_by_aid(aid):
         # 获取评论
         c = await comment.get_comments(1906148774, comment.CommentResourceType.VIDEO, page)
         # 存储评论
-        comments.extend(c['replies'])
+        comments.extend(c)
         # 增加已获取数量
         count += c['page']['size']
         # 增加页码

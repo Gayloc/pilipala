@@ -44,7 +44,7 @@ async def get_comment_by_aid(aid):
     return comments
 
 class MyHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
+    async def do_GET(self):
         parsed_path = urlparse(self.path)
         path = parsed_path.path
         query_params = parse_qs(parsed_path.query)
