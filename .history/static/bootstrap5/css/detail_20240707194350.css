@@ -24,9 +24,6 @@ header {
     color: white;
 }
 
-header:hover {
-    cursor: pointer;
-}
 
 /* 
 * 主题切换

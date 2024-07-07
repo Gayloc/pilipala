@@ -19,13 +19,11 @@ header {
     width: 100%;
     align-items: center;
     display: flex;
+    position: fixed;
     z-index: 999;
     justify-content: space-between;
     color: white;
-}
-
-header:hover {
-    cursor: pointer;
+    m
 }
 
 /* 

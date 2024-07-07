@@ -51,7 +51,7 @@ function loadVideoInfo(data) {
     let titlecard = document.querySelector(".title");
     titlecard.innerHTML = data["title"];
     titlecard.title = data["title"];
-    document.title = data["title"] + " - PiliPala";
+    document.title
 
     let titlestat = document.querySelector(".views");
     let view = document.createElement("p");

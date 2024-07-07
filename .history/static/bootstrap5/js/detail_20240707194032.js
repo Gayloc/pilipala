@@ -51,7 +51,6 @@ function loadVideoInfo(data) {
     let titlecard = document.querySelector(".title");
     titlecard.innerHTML = data["title"];
     titlecard.title = data["title"];
-    document.title = data["title"] + " - PiliPala";
 
     let titlestat = document.querySelector(".views");
     let view = document.createElement("p");
@@ -178,7 +177,7 @@ function getVideoCard(video) {
             "bvid": video["bvid"]
         };
         const queryString = new URLSearchParams(data).toString();
-        window.open('http://127.0.0.1:5500/View/detail.html?' + queryString , '_self')
+        window.location.href = 'http://127.0.0.1:5500/View/detail.html?' + queryString;
     })
 
     return card;
@@ -206,7 +205,7 @@ function changeTheme(theme) {
     if (theme === "light") {
         body.style.backgroundColor = "#fff";
         btngroup.style.backgroundColor = "#f2f2f2";
-        logo.style.color = "rgb(52, 52, 52)";
+        logo.style.color = "#fff";
         for (let i = 0; i < btns.length; i++) {
             btns[i].style.color = "rgb(97, 97, 97)";
         }
@@ -219,8 +218,4 @@ function changeTheme(theme) {
             btns[i].style.color = "#fff";
         }
     }
-}
-
-function returnToIndex() { 
-    window.open("http://127.0.0.1:5500/View/index.html", "_blank");
 }

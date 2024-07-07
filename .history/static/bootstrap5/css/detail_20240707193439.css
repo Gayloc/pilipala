@@ -12,41 +12,12 @@
 */
 
 header {
-    border-radius: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 5vh;
-    width: 100%;
-    align-items: center;
-    display: flex;
-    z-index: 999;
-    justify-content: space-between;
-    color: white;
-}
-
-header:hover {
-    cursor: pointer;
-}
-
-/* 
-* 主题切换
-*/
-
-.btn-group {
-    width: 10%;
-    background-color: rgb(54, 54, 54);
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.btn-group button {
-    color: white;
-}
-
-.btn-group button:hover {
-    scale: 1.1;
-    cursor: pointer;
+    min-width: 100%;
+    height: 4rem;
+    flex-direction: row;
+    justify-content:
+    z-index: 18;
+    float: left;
 }
 
 /* 
@@ -191,6 +162,28 @@ main {
 }
 
 /* 
+* 主题切换
+*/
+
+.btn-group {
+    float: right;
+    width: 10%;
+    background-color: rgb(54, 54, 54);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn-group button {
+    color: white;
+}
+
+.btn-group button:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+/* 
 * 视频播放量等信息
 */
 
@@ -249,7 +242,7 @@ main {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; 
     padding-right: 10px;
     padding-top: 10px;
 }

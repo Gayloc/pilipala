@@ -51,7 +51,6 @@ function loadVideoInfo(data) {
     let titlecard = document.querySelector(".title");
     titlecard.innerHTML = data["title"];
     titlecard.title = data["title"];
-    document.title = data["title"] + " - PiliPala";
 
     let titlestat = document.querySelector(".views");
     let view = document.createElement("p");
@@ -222,5 +221,5 @@ function changeTheme(theme) {
 }
 
 function returnToIndex() { 
-    window.open("http://127.0.0.1:5500/View/index.html", "_blank");
+    window.open("http://127.0.0.1:5500/View/index.html", "_self");
 }
