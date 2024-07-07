@@ -8,13 +8,17 @@ loadInfo();
 loadVideos();
 
 async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const currentVisibility = !document.hidden;
+    if (currentVisibility !== previousVisibility){
+      console.log("页面状态变化:", currentVisibility ? "页面可见" : "页面不可见");
+      
+    }
   }
 }
 
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
     document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {

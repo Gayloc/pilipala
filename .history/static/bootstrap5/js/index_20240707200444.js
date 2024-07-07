@@ -7,14 +7,9 @@ const HTTP = "http://127.0.0.1:8888"
 loadInfo();
 loadVideos();
 
-async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
-  }
-}
+async function che() { }
 
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
     document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {

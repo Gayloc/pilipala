@@ -3,22 +3,14 @@ let ranking;
 const max_cover_num = 20
 const HTTP = "http://127.0.0.1:8888"
 
-
 loadInfo();
 loadVideos();
 
-async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
-  }
-}
-
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
-    document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
+    document.title = "劈里啪啦 - PiliPala";
   } else {
-    document.title = "别走好吗！(」゜ロ゜)」 - PiliPala";
+    document.title = "别走好吗！(」゜ロ゜)」 作者：貓玉 https://www.bilibili.com/read/cv14795855/ 出处：bilibili";
   }
 }
 

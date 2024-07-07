@@ -6,11 +6,12 @@ const HTTP = "http://127.0.0.1:8888"
 
 loadInfo();
 loadVideos();
+checkPage();
 
 async function checkPage() {
   if (document.hidden)
   {
-    setInterval(checkPageVisibility(), 1000);
+    
   }
 }
 

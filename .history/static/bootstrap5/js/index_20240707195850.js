@@ -3,20 +3,12 @@ let ranking;
 const max_cover_num = 20
 const HTTP = "http://127.0.0.1:8888"
 
-
 loadInfo();
 loadVideos();
 
-async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
-  }
-}
-
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
-    document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
+    document.title = "欢迎回来";
   } else {
     document.title = "别走好吗！(」゜ロ゜)」 - PiliPala";
   }

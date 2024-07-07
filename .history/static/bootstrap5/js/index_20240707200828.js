@@ -6,15 +6,17 @@ const HTTP = "http://127.0.0.1:8888"
 
 loadInfo();
 loadVideos();
+checkPage();
 
 async function checkPage() {
   if (document.hidden)
   {
-    setInterval(checkPageVisibility(), 1000);
+    // 定时器，每隔10秒检查一次页面是否可见
+    setTimeout(checkPageVisibility, 10000);
   }
 }
 
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
     document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {

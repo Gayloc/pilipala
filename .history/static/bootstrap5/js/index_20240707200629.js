@@ -6,15 +6,25 @@ const HTTP = "http://127.0.0.1:8888"
 
 loadInfo();
 loadVideos();
+c
 
 async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const currentVisibility = !document.hidden;
+    if (currentVisibility !== previousVisibility){
+      console.log("页面状态变化:", currentVisibility ? "页面可见" : "页面不可见");
+      if (currentVisibility) {
+        timerId = setInterval(function() {
+          console.log("定时器执行中...");
+          checkPageVisibility();
+      }, 1000);
+      }
+    }
   }
 }
 
-async function checkPageVisibility() {
+function checkPageVisibility() {
   if (!document.hidden) {
     document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
   } else {

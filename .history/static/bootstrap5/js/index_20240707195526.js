@@ -3,59 +3,45 @@ let ranking;
 const max_cover_num = 20
 const HTTP = "http://127.0.0.1:8888"
 
-
 loadInfo();
 loadVideos();
 
-async function checkPage() {
-  if (document.hidden)
-  {
-    setInterval(checkPageVisibility(), 1000);
-  }
-}
 
-async function checkPageVisibility() {
-  if (!document.hidden) {
-    document.title = "欢迎回来！(。・∀・)ノ - PiliPala";
-  } else {
-    document.title = "别走好吗！(」゜ロ゜)」 - PiliPala";
-  }
-}
 
 document.addEventListener('DOMContentLoaded', function () {
   // 不再监听鼠标悬停事件，改为监听滚动事件
   window.addEventListener('scroll', function () {
-    const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY;
 
-    if (scrollPosition > 0) {
-      document.body.classList.remove('no-mask');
-      document.getElementById('header').classList.remove('no-mask');
-      document.getElementById('to-top').style.display = 'flex';
-    } else {
-      document.body.classList.add('no-mask');
-      document.getElementById('header').classList.add('no-mask');
-      document.getElementById('to-top').style.display = 'none';
-    }
+      if (scrollPosition > 0) {
+          document.body.classList.remove('no-mask');
+          document.getElementById('header').classList.remove('no-mask');
+          document.getElementById('to-top').style.display = 'flex';
+      } else {
+          document.body.classList.add('no-mask');
+          document.getElementById('header').classList.add('no-mask');
+          document.getElementById('to-top').style.display = 'none';
+      }
   });
 })
 
 function changeInfo(num) {
-  if (num >= 0 && num <= max_cover_num - 1) {
+  if (num >= 0 && num <= max_cover_num-1) {
     current = num;
-  } else if (num < 0) {
-    current = max_cover_num - 1
-  } else if (num > max_cover_num - 1) {
+  } else if(num < 0) {
+    current = max_cover_num-1
+  } else if(num > max_cover_num-1) {
     current = 0
   }
 
-  document.getElementById("info-title").innerHTML = current + 1 + "#" + ranking[current]["title"]
+  document.getElementById("info-title").innerHTML = current+1+"#"+ranking[current]["title"]
   document.getElementById("info-text").innerHTML = ranking[current]["owner"]["name"]
   document.querySelector("body").style.backgroundImage = "url(" + "//wsrv.nl/?url=" + ranking[current]["pic"]
 }
 
 function setInfo(data, num) {
   ranking = data;
-  document.getElementById("info-title").innerHTML = num + 1 + "#" + data[num]["title"]
+  document.getElementById("info-title").innerHTML = num+1+"#"+data[num]["title"]
   document.getElementById("info-text").innerHTML = data[num]["owner"]["name"]
   document.querySelector("body").style.backgroundImage = "url(" + "//wsrv.nl/?url=" + data[num]["pic"]
 }
@@ -101,7 +87,7 @@ function getVideoCard(video) {
   card_body.appendChild(text)
   card.appendChild(card_body);
 
-  card.addEventListener("click", () => {
+  card.addEventListener("click",() => {
     const data = {
       "bvid": video["bvid"]
     };
