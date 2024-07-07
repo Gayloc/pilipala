@@ -214,7 +214,7 @@ function changeTheme(theme) {
     else if (theme === "dark") {
         body.style.backgroundColor = "rgb(38, 38, 38)";
         btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "rgb(210, 210, 210)";
+        main.style.backgroundColor = "rgb(210, 210, 200)";
         logo.style.color = "#fff";
         btn.style.color = "#fff";
     }

@@ -201,22 +201,25 @@ function loadInfo() {
 function changeTheme(theme) {
     const body = document.querySelector("body");
     const btngroup = document.querySelector(".btn-group");
+    const btns = document.querySelectorAll(".btn-group button");
     const logo = document.querySelector(".logo");
-    var main = document.querySelector(".main");
-    var btn = document.querySelector(".button");
+    const main = document.querySelector(".main");
     if (theme === "light") {
         body.style.backgroundColor = "rgb(230, 230, 230)";
         btngroup.style.backgroundColor = "#f2f2f2";
         logo.style.color = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "#fff";
-        btn.style.color = "#fff";
+        
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].style.color = "rgb(97, 97, 97)";
+        }
     }
     else if (theme === "dark") {
         body.style.backgroundColor = "rgb(38, 38, 38)";
         btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "rgb(210, 210, 210)";
         logo.style.color = "#fff";
-        btn.style.color = "#fff";
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].style.color = "#fff";
+        }
     }
 }
 

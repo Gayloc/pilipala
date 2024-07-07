@@ -40,6 +40,9 @@ header:hover {
     padding: 5px;
 }
 
+.btn-group button {
+    color: white;
+}
 
 .btn-group button:hover {
     scale: 1.1;
@@ -60,7 +63,7 @@ main {
     margin: auto;
     max-width: 1200px;
     padding: 1rem;
-    background-color: rgb(210, 210, 210);
+    background-color: aqua;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;

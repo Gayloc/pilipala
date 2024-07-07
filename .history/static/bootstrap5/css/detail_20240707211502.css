@@ -60,7 +60,7 @@ main {
     margin: auto;
     max-width: 1200px;
     padding: 1rem;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(200, 200, 200);
     display: flex;
     justify-content: flex-start;
     flex-direction: row;

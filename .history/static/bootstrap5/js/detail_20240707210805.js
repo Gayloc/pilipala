@@ -202,21 +202,27 @@ function changeTheme(theme) {
     const body = document.querySelector("body");
     const btngroup = document.querySelector(".btn-group");
     const logo = document.querySelector(".logo");
-    var main = document.querySelector(".main");
-    var btn = document.querySelector(".button");
+    const main = document.querySelector(".main");
+    var left = document.querySelector(".leftbutton");
+    const right = document.querySelector(".rightbutton");
     if (theme === "light") {
         body.style.backgroundColor = "rgb(230, 230, 230)";
         btngroup.style.backgroundColor = "#f2f2f2";
         logo.style.color = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "#fff";
-        btn.style.color = "#fff";
+        main.style.color = "#fff";
+        left.classList.remove("btn-dark");
+        right.classList.remove("btn-dark");
+        left.classList.add("btn-light");
+        right.classList.add("btn-light");
     }
     else if (theme === "dark") {
         body.style.backgroundColor = "rgb(38, 38, 38)";
         btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "rgb(210, 210, 210)";
         logo.style.color = "#fff";
-        btn.style.color = "#fff";
+        left.classList.remove("btn-light");
+        right.classList.remove("btn-light");
+        left.classList.add("btn-dark");
+        right.classList.add("btn-dark");
     }
 }
 

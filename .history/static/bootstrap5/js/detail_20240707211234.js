@@ -208,13 +208,12 @@ function changeTheme(theme) {
         body.style.backgroundColor = "rgb(230, 230, 230)";
         btngroup.style.backgroundColor = "#f2f2f2";
         logo.style.color = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "#fff";
+        main.style.color = "#fff";
         btn.style.color = "#fff";
     }
     else if (theme === "dark") {
         body.style.backgroundColor = "rgb(38, 38, 38)";
         btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "rgb(210, 210, 210)";
         logo.style.color = "#fff";
         btn.style.color = "#fff";
     }
