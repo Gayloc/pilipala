@@ -87,14 +87,13 @@ function loadVideoInfo(data) {
     toggleButton.innerHTML = "展开全部";
     toggleButton.addEventListener('click', () => {
         toggleButton.innerHTML = toggleButton.innerHTML === "展开全部" ? "收起" : "展开全部";
-        interduction.style.overflow = toggleButton.innerHTML === "展开全部" ? "" : "hidden";
-        interduction.style.textOverflow = toggleButton.innerHTML === "展开全部" ? "ellipsis" : "";
-        interduction.style.display = toggleButton.innerHTML === "展开全部" ? "-webkit-box" : "block";
+        // interduction.style.
     });
     tname.className = "tname";
     tname.innerHTML = data["tname"];
     interductions.appendChild(interduction);
-    if (data["desc"].length > 100) { interductions.appendChild(toggleButton); }
+    interductions.appendChild(toggleButton);
+    if (data)
     interductions.appendChild(tname);
 
     let ownercard = document.createElement("div");

@@ -88,7 +88,7 @@ function loadVideoInfo(data) {
     toggleButton.addEventListener('click', () => {
         toggleButton.innerHTML = toggleButton.innerHTML === "展开全部" ? "收起" : "展开全部";
         interduction.style.overflow = toggleButton.innerHTML === "展开全部" ? "" : "hidden";
-        interduction.style.textOverflow = toggleButton.innerHTML === "展开全部" ? "ellipsis" : "";
+        interduction.style.textOverflow = toggleButton.innerHTML === "展开全部" ? "ellipsis" : "-webkit-box";
         interduction.style.display = toggleButton.innerHTML === "展开全部" ? "-webkit-box" : "block";
     });
     tname.className = "tname";

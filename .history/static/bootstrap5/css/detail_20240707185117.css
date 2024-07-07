@@ -190,21 +190,7 @@ body {
     padding-left: 15px;
 }
 
-.introductions .introduction {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
-    padding-right: 10px;
-}
-
-
-.introductions .togglebutton {
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: small;
-}
+.introductions .
 
 .introductions .tname {
     font-size: small;

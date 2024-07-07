@@ -195,8 +195,7 @@ body {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
-    padding-right: 10px;
+    -webkit-line-clamp: 2;
 }
 
 

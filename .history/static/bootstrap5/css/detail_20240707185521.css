@@ -191,19 +191,17 @@ body {
 }
 
 .introductions .introduction {
+    max-height: 100px;
     overflow: hidden;
+    transition: max-height 0.5s ease;
+    
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; 
-    padding-right: 10px;
 }
 
 
 .introductions .togglebutton {
     cursor: pointer;
     text-decoration: underline;
-    font-size: small;
 }
 
 .introductions .tname {
