@@ -18,31 +18,7 @@ async def get_vedio_by_bvid(bvid):
     return info
 
 async def get_comment_by_aid(aid):
-    # 存储评论
-    comments = []
-    # 页码
-    page = 1
-    # 当前已获取数量
-    count = 0
-    # 获取评论
-    c = await comment.get_comments(aid, comment.CommentResourceType.VIDEO, page)
-    while True:
-        # 存储评论
-        if count >= c['page']['count']:
-            # 当前已获取数量已达到评论总数，跳出循环
-            break
-        # print(c['replies'])
-        comments.extend(c['replies'])
-        # 增加已获取数量
-        count += c['page']['size']
-        # 增加页码
-        page += 1
-    # # 打印评论
-    # for cmt in comments:
-    #     print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
-    # # 打印评论总数
-    # print(f"\n\n共有 {count} 条评论（不含子评论）")
-    return comments
+    return await comment.get_comments(aid, comment.CommentResourceType.VIDEO, 1)
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -80,6 +56,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(json.dumps(sync(get_comment_by_aid(query_params["aid"][0]))).encode('utf-8'))
+
 
 # 定义服务器地址和端口
 server_address = ('', 8888)

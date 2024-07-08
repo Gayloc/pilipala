@@ -1,5 +1,6 @@
-let current = 0;
+let aid;
 let ranking;
+let comments;
 const max_cover_num = 20
 const HTTP = "http://127.0.0.1:8888"
 
@@ -10,23 +11,11 @@ const bvid = params.get('bvid');
 loadInfo();
 loadVideos();
 getVideoInfo(bvid);
+getPlayer();
 
-document.addEventListener('DOMContentLoaded', function () {
-    // 不再监听鼠标悬停事件，改为监听滚动事件
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.scrollY;
-
-        if (scrollPosition > 0) {
-            document.body.classList.remove('no-mask');
-            document.getElementById('header').classList.remove('no-mask');
-            document.getElementById('to-top').style.display = 'flex';
-        } else {
-            document.body.classList.add('no-mask');
-            document.getElementById('header').classList.add('no-mask');
-            document.getElementById('to-top').style.display = 'none';
-        }
-    });
-})
+function getPlayer() {
+    document.querySelector('.video').innerHTML = '<iframe src="//player.bilibili.com/player.html?bvid=' + bvid + '&muted=false&autoplay=false" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"></iframe>'
+}
 
 function getVideoInfo(bvid) {
     fetch(HTTP + "/get_vedio_by_bvid" + "?bvid=" + bvid, {
@@ -40,8 +29,7 @@ function getVideoInfo(bvid) {
 }
 
 function loadVideoInfo(data) {
-    console.log(data);
-
+    console.log(data)
     let timecard = document.querySelector(".time");
     let time = document.createElement("p");
     timecard.className = "time"
@@ -92,20 +80,23 @@ function loadVideoInfo(data) {
         interduction.style.textOverflow = toggleButton.innerHTML === "展开全部" ? "ellipsis" : "";
         interduction.style.display = toggleButton.innerHTML === "展开全部" ? "-webkit-box" : "block";
     });
-    tname.className = "tname";
+    tname.className = "card tname";
     tname.innerHTML = data["tname"];
     interductions.appendChild(interduction);
     if (data["desc"].length > 100) { interductions.appendChild(toggleButton); }
     interductions.appendChild(tname);
 
-    let ownercard = document.createElement("div");
     let ownername = document.createElement("p");
     let owneravatar = document.createElement("img");
-    ownercard.className = "owner"
     ownername.innerHTML = data["owner"]["name"];
-    owneravatar.src = data["owner"]["face"];
+    owneravatar.src = "//wsrv.nl/?url=" + data["owner"]["face"];
+    document.querySelector(".auther").appendChild(owneravatar)
+    document.querySelector(".auther").appendChild(ownername)
 
-    loadVedioComment(data["aid"]);
+    document.body.style.backgroundImage = "url(//wsrv.nl/?url="+data["pic"];
+
+    aid = data["aid"]
+    loadVedioComment(aid);
 }
 
 async function loadVedioComment(aid) {
@@ -113,10 +104,60 @@ async function loadVedioComment(aid) {
         method: "GET",
     })
         .then((response) => response.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            comments = data;
+            getCommentsCards();
+        })
         .catch((error) => {
             console.error("Error fetching data:", error);
         });
+}
+
+function getCommentsCards() {
+    let commentContainer = document.getElementById('comment-container');
+    for (let i = 0; i < comments["page"]["size"]; i++) {
+        commentContainer.appendChild(getCommentCard(comments["replies"][i]))
+    }
+}
+
+function getCommentCard(data) {
+    let senderInfo = document.createElement("div");
+    senderInfo.className = "video-card-sender-info";
+    let card = document.createElement("div");
+    card.className = "card video-card";
+    let avatar = document.createElement("img");
+    avatar.className = "video-card-img";
+    let title = document.createElement("p");
+    title.className = "video-card-title";
+    let content = document.createElement("p");
+    content.className = "video-card-content";
+    let commentReplies = document.createElement("div");
+    commentReplies.className = "video-card-comment-replies";
+    let commentTime = document.createElement("p");
+    commentTime.className = "comment-time";
+
+    avatar.src = "//wsrv.nl/?url=" + data["member"]["avatar"];
+    title.innerHTML = data["member"]["uname"]
+    content.innerHTML = data["content"]["message"]
+    commentTime.innerHTML = "发布时间：" + formatDate(data["ctime"] * 1000);
+
+    let replies = data["replies"]
+    if (replies!=null) {
+        if (replies.length > 0) {
+            for (reply of replies) {
+                commentReplies.appendChild(getCommentCard(reply));
+            }
+        }
+    }
+
+    senderInfo.appendChild(avatar);
+    senderInfo.appendChild(title);
+    card.appendChild(senderInfo);
+    card.appendChild(content);
+    card.appendChild(commentReplies);
+    card.appendChild(commentTime);
+
+    return card;
 }
 
 // 时间格式化函数
@@ -129,12 +170,11 @@ function formatDate(datetime) {
     const minutes = ('0' + date.getMinutes()).slice(-2);
     const seconds = ('0' + date.getSeconds()).slice(-2);
     const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    console.log(formattedDate);
     return formattedDate;
 }
 
 function loadVideos() {
-    fetch(HTTP, {
+    fetch(HTTP , {
         method: "GET",
     })
         .then((response) => response.json())
@@ -196,28 +236,6 @@ function loadInfo() {
         .catch((error) => {
             console.error("Error fetching data:", error);
         });
-}
-
-function changeTheme(theme) {
-    const body = document.querySelector("body");
-    const btngroup = document.querySelector(".btn-group");
-    const logo = document.querySelector(".logo");
-    var main = document.querySelector(".main");
-    var btn = document.querySelector(".button");
-    if (theme === "light") {
-        body.style.backgroundColor = "rgb(230, 230, 230)";
-        btngroup.style.backgroundColor = "#f2f2f2";
-        logo.style.color = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "#fff";
-        btn.style.color = "#fff";
-    }
-    else if (theme === "dark") {
-        body.style.backgroundColor = "rgb(38, 38, 38)";
-        btngroup.style.backgroundColor = "rgb(52, 52, 52)";
-        main.style.backgroundColor = "rgb(210, 210, 210)";
-        logo.style.color = "#fff";
-        btn.style.color = "#fff";
-    }
 }
 
 function returnToIndex() {
