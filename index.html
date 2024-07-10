@@ -1,29 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="charset" content="utf-8" />
-        <title>劈里啪啦 - PiliPala</title>
-        <link href="./css/index.css" rel="stylesheet"/>
-        <link rel="icon" type="image/gif" href="./images/mona-loading-default.gif">
-    </head>
-    <body class="no-mask">
-        <header id="header" class="no-mask">
-            <div style="height: 90%;display: flex;flex-direction: row;align-items: center;">
-                <img src="./images/mona-loading-default.gif" height="100%"></img>
-                <h3>劈里啪啦视频网</h3>
-            </div>
-            <div>
-                <button class="button" id="previous" onclick="changeInfo(current-1)">上一张</button>
-                <button class="button" id="next" onclick="changeInfo(current+1)">下一张</button>
-            </div>
-        </header>
-        <div class="info">
-            <h1 id="info-title"></h1>
-            <p id="info-text"></p>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>劈里啪啦 - PiliPala</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      rel="icon"
+      type="image/gif"
+      href="./images/mona-loading-default.gif"
+    />
+  </head>
+  <body class="no-mask">
+    <header id="header" class="no-mask">
+      <div class="container" style="height: 100%">
+        <div class="row align-items-center" style="height: 90%">
+          <div class="col-md-9" style="height: 100%">
+            <img
+              src="./images/mona-loading-default.gif"
+              class="logo"
+              alt="Logo"
+            />
+            <span class="site-title">劈里啪啦视频网</span>
+          </div>
+          <div class="col-md-3">
+            <button
+              class="button"
+              id="previous"
+              onclick="changeInfo(current-1)"
+            >
+              上一张
+            </button>
+            <button
+              class="button"
+              id="next"
+              onclick="changeInfo(current+1)"
+            >
+              下一张
+            </button>
+          </div>
         </div>
-        <div id="content"></div>
-        <div id="to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><span>⬆️</span></div>
-        <script type="text/javascript" src="./js/index.js"></script>
-    </body>
+      </div>
+    </header>
+    <main class="container">
+      <section class="info">
+        <h1 id="info-title"></h1>
+        <p id="info-text"></p>
+      </section>
+      <section class="row">
+        <div class="col" id="content">
+          <!-- 内容区域 -->
+        </div>
+      </section>
+    </main>
+    <div
+      id="to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      class="position-fixed bottom-0 end-0 me-3 mb-3"
+    >
+      <span class="btn">⬆️</span>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
 </html>

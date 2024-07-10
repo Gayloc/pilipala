@@ -1,6 +1,6 @@
 let current = 0;
 let ranking;
-const max_cover_num = 20
+const max_cover_num = 100
 const HTTP = "/data"
 
 loadInfo()
@@ -79,7 +79,7 @@ function loadVideoCards(item) {
 
 function getVideoCard(video) {
   let card = document.createElement("div");
-  card.className = "card";
+  card.className = "card col-md-4 col-lg-3";
 
   let cover = document.createElement("img");
   let title = document.createElement("p");
