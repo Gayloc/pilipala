@@ -1,0 +1,368 @@
+/* 
+* 全局设置
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+* 头部设置
+*/
+
+header {
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 5vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    z-index: 999;
+    justify-content: space-between;
+    color: white;
+}
+
+.logo-box:hover {
+    cursor: pointer;
+}
+
+/* 
+* 主题切换
+*/
+
+.btn-group {
+    width: 10%;
+    background-color: rgb(54, 54, 54);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn-group button:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+/* 
+* 主体设置
+*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: all 0.3s;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+
+main {
+    margin-bottom: 5rem;
+    margin: auto;
+    max-width: 80%;
+    min-width: 1300px;
+    padding: 1rem;
+    background-color: rgb(210, 210, 210);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-radius: 15px;
+}
+
+/* 
+* 左右两部分设置
+*/
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+}
+
+/* 
+* 标题设置
+*/
+
+.title {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
+/* 
+* 视频设置
+*/
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    min-height: 650px;
+}
+
+/* 
+* 作者设置
+*/
+
+.auther {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.auther img {
+    width: 30%;
+    border-radius: 50px;
+}
+
+.auther p {
+    margin: 0;
+    font-size: larger;
+}
+
+/* 
+* 右侧推荐列表设置
+*/
+
+.recommend {
+    padding-left: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.recommend ul li a {
+    direction: none;
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    min-width: 300px;
+    max-height: 100px;
+    margin: 5px;
+    transition: all 0.3s;
+    padding: 10px;
+    opacity: 0.85;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.card:hover {
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 1;
+    scale: 1.1;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.card-img-top {
+    max-height: 90px;
+    max-width: 50%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75px;
+    padding: 0px;
+    padding-left: 8px;
+}
+
+.card-title {
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+.card-text {
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    text-align: center;
+    padding: auto;
+}
+
+/* 
+* 视频播放量等信息
+*/
+
+.titlestat {
+    font-size: small;
+    margin-top: -15px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.titlestat .time {
+    margin-left: 10px;
+}
+
+/* 
+* 点赞投币设置
+*/
+
+.stat {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+    align-items: center;
+}
+
+.stat div {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* 
+* 简介设置
+*/
+
+.introductions {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-bottom: 1px solid gray;
+    padding-left: 15px;
+}
+
+.introductions .introduction {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+
+.introductions .togglebutton {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: small;
+}
+
+.introductions .tname {
+    font-size: small;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 30%;
+    width: 100%;
+}
+
+.tname {
+    min-width: fit-content;
+    max-width: fit-content;
+    border: 0;
+}
+
+.tname:hover{
+    cursor: default;
+}
+
+/* 
+* 评论设置
+*/
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.views {
+    display: flex;
+    flex-direction: row;
+}
+
+.video-card {
+    flex-direction: column;
+    margin-left: 30px;
+    max-height: fit-content;
+}
+
+.video-card:hover {
+    cursor: default;
+    scale: 1;
+}
+
+.video-card-sender-info {
+    display: flex;
+    align-items: center;
+}
+
+.video-card-img {
+    width: 50px;
+    border-radius: 30px;
+}
+
+.video-card-title {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.more {
+    text-align: center;
+}
