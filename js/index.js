@@ -6,6 +6,10 @@ const HTTP = "/data"
 loadInfo()
 checkPage();
 
+document.querySelector(".info").addEventListener('click',() => {
+  window.open('/detail.html?bvid=' + ranking[current]["bvid"], '_blank');
+})
+
 function checkPage() {
   setInterval(function () {
     checkPageVisibility();

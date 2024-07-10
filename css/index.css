@@ -116,7 +116,6 @@ body::before {
 }
 
 .info {
-    width: 90vw;
     height: 100vh;
     margin: 0;
     border-radius: 15px;
